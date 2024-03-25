@@ -22,16 +22,16 @@ def select_alg():
 
     # TODO: parse text files
     # TODO: Adjust with other algorithm function calls
-    if algorithm == 1:
+    if algorithm == '1':
         # LongCommSeq()
         return
-    elif algorithm == 2:
+    elif algorithm == '2':
         # LongCommSubSeq
         return
-    elif algorithm == 3:
+    elif algorithm == '3':
         # Edit Distance
         return
-    elif algorithm == 4:
+    elif algorithm == '4':
         # NeedleMan-Wunsch
         return
     else:
