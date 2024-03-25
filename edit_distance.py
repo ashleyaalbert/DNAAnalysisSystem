@@ -26,7 +26,6 @@ def edit_distance_BU(s, t): # Bottom-up approach
                         d[i][j-1] + 1,
                         d[i-1][j-1] + (0 if s[j-1] == t[i-1] else 1)
                         )
-    displayMatrix(d)
     return d[len_t][len_s]
 
 def edit_distance(s, t):

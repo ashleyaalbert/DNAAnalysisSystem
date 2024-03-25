@@ -1,6 +1,7 @@
 # Imports from other algorithm files
 from parse import query_parse, parse
 
+from substring import longest_common_substring
 from subsequence import LongCommSubSeq
 from edit_distance import edit_distance
 from substring_alignment import sub_alignment
@@ -35,11 +36,11 @@ def select_alg(s, t):
     # TODO: Adjust with other algorithm function calls
 
     if algorithm == '1':
-        # LongCommSeq()
-        return
+        # longest_common_substring()
+        return do_alg(longest_common_substring, s, t)
     elif algorithm == '2':
         # LongCommSubSeq
-        return
+        return do_alg(LongCommSubSeq, s, t)
     elif algorithm == '3':
         # Edit Distance
         return do_alg(edit_distance, s, t)
@@ -54,10 +55,15 @@ def select_alg(s, t):
         select_alg()
 
 # TODO: printouts of comparisons...
+# TODO: will each algorithm give a score 0-1? Each alg give a different output?
 def do_alg(alg, s, t):
     scores = []
 
+    #print(t)
+
     for key in t.keys():
         scores.append(alg(s, t[key]))
+
+    print('\n\nSCORES:\n', scores)
 
 main()
