@@ -20,9 +20,9 @@ def freqs_similarity(s, t):
     sum_freqs = sum([abs(s_freqs[i] - t_freqs[i]) for i in s_freqs])
     return 1 - (sum_freqs / len(s_freqs))
 
-def get_score(s, t):
+def sub_alignment(s, t):
     return (sequence_match_score(s, t, 3) + freqs_similarity(s, t)) / 2
 
 
 # Test
-print(get_score('ACGTGGTTCATTGA','ATGCCCGTAATGC'))
+# print(sub_alignment('ACGTGGTTCATTGA','ATGCCCGTAATGC'))
