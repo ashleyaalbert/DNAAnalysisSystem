@@ -42,15 +42,22 @@ def select_alg(s, t):
         return
     elif algorithm == '3':
         # Edit Distance
-        return edit_distance(s, t)
+        return do_alg(edit_distance, s, t)
     elif algorithm == '4':
         # NeedleMan-Wunsch
         return
     elif algorithm == '5':
         # Substring alignment (idk what to call this)
-        return sub_alignment(s, t)
+        return do_alg(sub_alignment, s, t)
     else:
         print("Invalid input. Try again!")
         select_alg()
+
+# TODO: printouts of comparisons...
+def do_alg(alg, s, t):
+    scores = []
+
+    for key in t.keys():
+        scores.append(alg(s, t[key]))
 
 main()
