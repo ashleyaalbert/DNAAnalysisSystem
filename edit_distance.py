@@ -38,7 +38,7 @@ def edit_distance(s, t):
 # print(edit_distance('ACGTGGTTCATTGA','ATGCCCGTAATGC'))        
 
 # print(edit_distance_RECUR('baseball','football'))
-# print(edit_distance('baseball','football'))
+# # print(edit_distance('baseball','football'))
 
-# print(edit_distance_RECUR('ball','bal'))
+# # print(edit_distance_RECUR('ball','bal'))
 # print(edit_distance_BU('cars','crs'))
