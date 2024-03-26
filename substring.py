@@ -21,5 +21,6 @@ def longest_common_substring(string1, string2):
 
   # longest common substring from the ending index and its length
   longest_substring = string1[ending_index - max_length: ending_index]
+  print("The longest common substring is: ", longest_substring)
 
   return longest_substring
