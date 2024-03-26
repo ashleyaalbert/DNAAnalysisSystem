@@ -1,6 +1,6 @@
 # Imports from other algorithm files
+import os
 from parse import query_parse, parse
-
 from substring import longest_common_substring
 from subsequence import LongCommSubSeq
 from edit_distance import edit_distance
@@ -9,14 +9,19 @@ from substring_alignment import sub_alignment
 def main():
     query_file = ''
     seq_file = ''
+    # gets the current folder's absolute path
+    current_folder = os.path.dirname(os.path.abspath(__file__))
+    print("Welcome to the DNA Analysis System!")
     if input("Use the default DNA query / sequence files? (y/n) ") in ['y','Y']:
-        query_file = 'DNA_query.txt'
-        seq_file = 'DNA_sequences.txt'
+        # gets the correct file paths
+        query_file = os.path.join(current_folder, 'DNA_query.txt')
+        seq_file = os.path.join(current_folder, 'DNA_sequences.txt')
     else:
         print("Please enter the file name for the following:")
-        query_file = input("Query sequence: ")
-
-        seq_file = input("Sequences to be searched aginst query: ")
+        query_file_input = input("Query sequence: ")
+        query_file = os.path.join(current_folder, query_file_input)
+        seq_file_input = input("Sequences to be searched aginst query: ")
+        seq_file = os.path.join(current_folder, seq_file_input)
 
     # Select algorithm
     alg = select_alg(query_parse(query_file), parse(seq_file))
@@ -28,7 +33,7 @@ def select_alg(s, t):
     print("(2) Longest Common Subsequence")
     print("(3) Edit Distance")
     print("(4) Needleman-Wunsch Algorithm")
-    print("(5) Substrng Alignment and Frequency Algorithm")
+    print("(5) Substring Alignment and Frequency Algorithm")
     # TODO: Other algorithms
     algorithm = input("Enter corresponding number of algorithm of choice: ")
 
@@ -56,6 +61,7 @@ def select_alg(s, t):
 
 # TODO: printouts of comparisons...
 # TODO: will each algorithm give a score 0-1? Each alg give a different output?
+# TODO: need to give what dna matches the best specifically (give the gene)
 def do_alg(alg, s, t):
     scores = []
 
