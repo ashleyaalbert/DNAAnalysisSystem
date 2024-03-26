@@ -45,11 +45,13 @@ def LongCommSubSeq(query, input):
         else:
             j -= 1
 
-    return lcs
+    score =  len(lcs) / max(len(query), len(input))
+    return (lcs, score)
 
 # Testing
 # query = 'springtime'
 # s1 = 'pioneer'
 # s2 = 'CGGACAT'
-# print('The longest common substring is:', LongCommSubSeq(query, s1))
+# lcs = LongCommSubSeq(query, s1)
+# print(f'The longest common substring is: score: {lcs[0], lcs[1]}')
 # print('s2-CGGACAT: The longest common substring is:', LongCommSubSeq(query, s2))
