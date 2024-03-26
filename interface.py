@@ -75,8 +75,8 @@ def do_alg(alg, s, t):
     for key in t.keys():
         scores.append(alg(s, t[key]))
         if (scores[-1] == max(scores)): min = key
-        print("SCORE: ("+str(scores[-1])+") : " + key)
+        print("\nSCORE: ("+str(scores[-1][1])+") : " + key + ("" if scores[-1][0] == "" else str(scores[-1][0])) )
 
-    print("\n\nMOST SIMILAR:\n" + key)
+    print("\n\nMOST SIMILAR:\n" + min)
 
 main()

@@ -21,7 +21,7 @@ def freqs_similarity(s, t):
     return 1 - (sum_freqs / len(s_freqs))
 
 def sub_alignment(s, t):
-    return (sequence_match_score(s, t, 9) + freqs_similarity(s, t)) / 2
+    return "", (sequence_match_score(s, t, 9) + freqs_similarity(s, t)) / 2
 
 
 # Test
