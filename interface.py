@@ -12,7 +12,7 @@ def main():
     # gets the current folder's absolute path
     current_folder = os.path.dirname(os.path.abspath(__file__))
     print("Welcome to the DNA Analysis System!")
-    if input("Use the default DNA query / sequence files? (y/n) ") in ['y','Y']:
+    if input("Use the default DNA query / sequence files? (y/n): ") in ['y','Y']:
         # gets the correct file paths
         query_file = os.path.join(current_folder, 'DNA_query.txt')
         seq_file = os.path.join(current_folder, 'DNA_sequences.txt')
@@ -25,6 +25,9 @@ def main():
 
     # Select algorithm
     alg = select_alg(query_parse(query_file), parse(seq_file))
+
+    # Compare query with other sequences using 'alg'
+    do_alg(alg, query_parse(query_file), parse(seq_file))
 
 def select_alg(s, t):
     # Display menu of algorithms
@@ -42,19 +45,19 @@ def select_alg(s, t):
 
     if algorithm == '1':
         # longest_common_substring()
-        return do_alg(longest_common_substring, s, t)
+        return longest_common_substring
     elif algorithm == '2':
         # LongCommSubSeq
-        return do_alg(LongCommSubSeq, s, t)
+        return LongCommSubSeq
     elif algorithm == '3':
         # Edit Distance
-        return do_alg(edit_distance, s, t)
+        return edit_distance
     elif algorithm == '4':
         # NeedleMan-Wunsch
         return
     elif algorithm == '5':
         # Substring alignment (idk what to call this)
-        return do_alg(sub_alignment, s, t)
+        return sub_alignment
     else:
         print("Invalid input. Try again!")
         select_alg()
