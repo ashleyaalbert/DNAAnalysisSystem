@@ -2,7 +2,7 @@ from collections import Counter
 
 def get_freqs(seq):
     freqs = Counter(seq)
-    return {key: count / len(freqs) for key, count in freqs.items()}
+    return {key: count / len(seq) for key, count in freqs.items()}
 
 def get_substrings(seq, k):
     return set([seq[i:i+k] for i in range(len(seq) - k + 1)])
@@ -21,7 +21,7 @@ def freqs_similarity(s, t):
     return 1 - (sum_freqs / len(s_freqs))
 
 def sub_alignment(s, t):
-    return (sequence_match_score(s, t, 3) + freqs_similarity(s, t)) / 2
+    return (sequence_match_score(s, t, 9) + freqs_similarity(s, t)) / 2
 
 
 # Test
