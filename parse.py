@@ -4,6 +4,12 @@ def parse(filename):
         lines = file.readlines()
         my_dna = {}
         for line in lines:
+          if line.strip() != "":
+            break
+          if line == lines[len(lines)-1]:
+            print("One or more of your files is empty.")
+            exit()
+        for line in lines:
           if line[0] == '>':
             key = line[1:]
             my_dna[key] = ""
@@ -17,6 +23,12 @@ def query_parse(filename):
   with open(filename, 'r') as file:
     lines = file.readlines()
     query_string = ""
+    for line in lines:
+      if line.strip() != "":
+        break
+      if line == lines[len(lines)-1]:
+        print("One or more of your files is empty.")
+        exit()
     for line in lines:
       query_string += line.strip()
 
