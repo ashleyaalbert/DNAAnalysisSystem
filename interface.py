@@ -23,11 +23,18 @@ def main():
         seq_file_input = input("Sequences to be searched aginst query: ")
         seq_file = os.path.join(current_folder, seq_file_input)
 
-    # Select algorithm
-    alg = select_alg(query_parse(query_file), parse(seq_file))
+    run = True
+    while(run):
+        # Select algorithm
+        alg = select_alg(query_parse(query_file), parse(seq_file))
 
-    # Compare query with other sequences using 'alg'
-    do_alg(alg, query_parse(query_file), parse(seq_file))
+        # Compare query with other sequences using 'alg'
+        do_alg(alg, query_parse(query_file), parse(seq_file))
+        if input("Would you like to enter another algorithm or quit? (y/n): ") in ['y','Y']:
+            continue
+        else:
+            print("Thank you for using the DNA Analysis System!")
+            run = False
 
 def select_alg(s, t):
     # Display menu of algorithms
