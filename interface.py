@@ -22,12 +22,21 @@ def main():
         query_file = os.path.join(current_folder, query_file_input)
         seq_file_input = input("Sequences to be searched aginst query: ")
         seq_file = os.path.join(current_folder, seq_file_input)
+        if os.path.getsize(query_file) == 0 or os.path.getsize(seq_file) == 0:
+            print("One or more of your files is empty.")
+            return 
 
-    # Select algorithm
-    alg = select_alg(query_parse(query_file), parse(seq_file))
-
-    # Compare query with other sequences using 'alg'
-    do_alg(alg, query_parse(query_file), parse(seq_file))
+    run = True
+    while(run):
+        # Select algorithm
+        alg = select_alg(query_parse(query_file), parse(seq_file))
+        # Compare query with other sequences using 'alg'
+        do_alg(alg, query_parse(query_file), parse(seq_file))
+        if input("Would you like to enter another algorithm or quit? (y/n): ") in ['y','Y']:
+            continue
+        else:
+            print("Thank you for using the DNA Analysis System!")
+            run = False
 
 def select_alg(s, t):
     # Display menu of algorithms
@@ -70,13 +79,13 @@ def do_alg(alg, s, t):
 
     #print(t)
 
-    min = ''
+    maxK = ''
     print("All Scores:")
     for key in t.keys():
         scores.append(alg(s, t[key]))
-        if (scores[-1] == max(scores)): min = key
+        if (scores[-1] == max(scores, key=lambda x:x[1])): maxK = key
         print("\nSCORE: ("+str(scores[-1][1])+") : " + key + ("" if scores[-1][0] == "" else str(scores[-1][0])) )
 
-    print("\n\nMOST SIMILAR:\n" + min)
+    print("\n\nMOST SIMILAR:\n" + maxK)
 
 main()
