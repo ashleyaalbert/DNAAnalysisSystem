@@ -7,8 +7,7 @@ def parse(filename):
           if line.strip() != "":
             break
           if line == lines[len(lines)-1]:
-            print("One or more of your files is empty.")
-            exit()
+            return ''
         for line in lines:
           if line[0] == '>':
             key = line[1:]
@@ -27,8 +26,7 @@ def query_parse(filename):
       if line.strip() != "":
         break
       if line == lines[len(lines)-1]:
-        print("One or more of your files is empty.")
-        exit()
+        return ''
     for line in lines:
       query_string += line.strip().upper()
 

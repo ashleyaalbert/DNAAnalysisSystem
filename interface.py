@@ -11,20 +11,37 @@ def main():
     seq_file = ''
     # gets the current folder's absolute path
     current_folder = os.path.dirname(os.path.abspath(__file__))
-    print("Welcome to the DNA Analysis System!")
-    if input("Use the default DNA query / sequence files? (y/n): ") in ['y','Y']:
+    print("\nWelcome to the DNA Analysis System!")
+    if input("\nUse the default DNA query / sequence files? (y/n): ") in ['y','Y']:
         # gets the correct file paths
         query_file = os.path.join(current_folder, 'DNA_query.txt')
         seq_file = os.path.join(current_folder, 'DNA_sequences.txt')
     else:
-        print("Please enter the file name for the following:")
-        query_file_input = input("Query sequence: ")
-        query_file = os.path.join(current_folder, query_file_input)
-        seq_file_input = input("Sequences to be searched aginst query: ")
-        seq_file = os.path.join(current_folder, seq_file_input)
-        if os.path.getsize(query_file) == 0 or os.path.getsize(seq_file) == 0:
-            print("One or more of your files is empty.")
-            return 
+        fnames = os.listdir(current_folder)
+        while query_file == '':
+            print("\nPlease enter the file name for the following:")
+            query_file_input = input("Query sequence: ")
+
+            if query_file_input not in fnames: 
+                print("\nThis file does not exist.")
+            else:
+                query_file = os.path.join(current_folder, query_file_input)
+
+                if os.path.getsize(query_file) == 0 or query_parse(query_file) == '':
+                    print("This file is empty.")
+                    query_file = ''
+
+        while seq_file == '':
+            seq_file_input = input("\nSequences to be searched aginst query: ")
+
+            if seq_file_input not in fnames:
+                print("\nThis file does not exist.")
+            else:
+                seq_file = os.path.join(current_folder, seq_file_input)
+
+                if os.path.getsize(seq_file) == 0 or parse(seq_file) == '':
+                    print("This file is empty.")
+                    seq_file = ''
 
     run = True
     while(run):
