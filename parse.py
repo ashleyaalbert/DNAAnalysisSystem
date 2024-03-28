@@ -4,11 +4,16 @@ def parse(filename):
         lines = file.readlines()
         my_dna = {}
         for line in lines:
+          if line.strip() != "":
+            break
+          if line == lines[len(lines)-1]:
+            return ''
+        for line in lines:
           if line[0] == '>':
             key = line[1:]
             my_dna[key] = ""
           else:
-            my_dna[key] = my_dna[key] + line.strip()
+            my_dna[key] = my_dna[key] + line.strip().upper()
 
     return my_dna
 
@@ -18,7 +23,12 @@ def query_parse(filename):
     lines = file.readlines()
     query_string = ""
     for line in lines:
-      query_string += line.strip()
+      if line.strip() != "":
+        break
+      if line == lines[len(lines)-1]:
+        return ''
+    for line in lines:
+      query_string += line.strip().upper()
 
   return query_string
    

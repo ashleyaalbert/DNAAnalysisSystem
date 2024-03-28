@@ -31,7 +31,7 @@ def edit_distance_BU(s, t): # Bottom-up approach
 def edit_distance(s, t):
     edit_dist = edit_distance_BU(s, t)
     if edit_dist == 0: return 1
-    return 1 - (edit_dist / max(len(s), len(t)))
+    return "", 1 - (edit_dist / max(len(s), len(t)))
 
 
 # Some tests
