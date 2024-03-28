@@ -14,7 +14,7 @@ def parse(filename):
             key = line[1:]
             my_dna[key] = ""
           else:
-            my_dna[key] = my_dna[key] + line.strip()
+            my_dna[key] = my_dna[key] + line.strip().upper()
 
     return my_dna
 
@@ -30,7 +30,7 @@ def query_parse(filename):
         print("One or more of your files is empty.")
         exit()
     for line in lines:
-      query_string += line.strip()
+      query_string += line.strip().upper()
 
   return query_string
    
