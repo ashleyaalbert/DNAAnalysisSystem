@@ -92,12 +92,9 @@ def select_alg(s, t):
 def do_alg(alg, s, t):
     scores = []
 
-<<<<<<< HEAD
-=======
     #print(t)
 
     maxK = ''
->>>>>>> c12bd77400fbecb3788cb924de78d0886d843862
     print("All Scores:")
     for key in t.keys():
         scores.append(alg(s, t[key]))
