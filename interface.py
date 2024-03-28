@@ -5,6 +5,7 @@ from substring import longest_common_substring
 from subsequence import LongCommSubSeq
 from edit_distance import edit_distance
 from substring_alignment import sub_alignment
+from needleman_wurch import needleman_wurch
 
 def main():
     query_file = ''
@@ -53,8 +54,7 @@ def select_alg(s, t):
         # Edit Distance
         return edit_distance
     elif algorithm == '4':
-        # NeedleMan-Wunsch
-        return
+        return needleman_wurch
     elif algorithm == '5':
         # Substring alignment (idk what to call this)
         return sub_alignment
@@ -68,9 +68,6 @@ def select_alg(s, t):
 def do_alg(alg, s, t):
     scores = []
 
-    #print(t)
-
-    min = ''
     print("All Scores:")
     for key in t.keys():
         scores.append(alg(s, t[key]))
