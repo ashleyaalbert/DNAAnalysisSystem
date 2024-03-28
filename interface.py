@@ -89,8 +89,6 @@ def select_alg(s, t):
         select_alg()
 
 # TODO: printouts of comparisons...
-# TODO: will each algorithm give a score 0-1? Each alg give a different output?
-# TODO: need to give what dna matches the best specifically (give the gene)
 def do_alg(alg, s, t):
     scores = []
 
