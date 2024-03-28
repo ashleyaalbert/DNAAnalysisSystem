@@ -1,5 +1,6 @@
 # Imports from other algorithm files
 import os
+import sys
 from parse import query_parse, parse
 from substring import longest_common_substring
 from subsequence import LongCommSubSeq
@@ -55,6 +56,7 @@ def main():
         else:
             print("Thank you for using the DNA Analysis System!")
             run = False
+            sys.exit()
 
 def select_alg(s, t):
     # Display menu of algorithms
@@ -86,7 +88,8 @@ def select_alg(s, t):
         return sub_alignment
     else:
         print("Invalid input. Try again!")
-        select_alg()
+        # select_alg()
+        main()
 
 # TODO: printouts of comparisons...
 def do_alg(alg, s, t):

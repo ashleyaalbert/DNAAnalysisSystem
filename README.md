@@ -1,61 +1,35 @@
 # 311-group-project
 
 
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
-```
-cd existing_repo
-git remote add origin https://gitlab.bucknell.edu/kbw011/311-group-project.git
-git branch -M main
-git push -uf origin main
-```
-
-## Integrate with your tools
-
-- [ ] [Set up project integrations](https://gitlab.bucknell.edu/kbw011/311-group-project/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-
 ## DNA Analysis System
 This project analyzes a DNA sequence against a DNA query to find similarities. The way these pieces of DNA are matched is up to the user! Choose between different algorithms, such as longest common subsequence or edit distance, to see the matches you get!
 
 ## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-The DNA Analysis System allows for a user to analyze DNA sequences against a DNA query. The user will be welcomed and prompted to either enter their own files or use the current system's files. These files will be checked to ensure they are valid. The user will then be prompted to select an algorithm to go through the DNA. The possible options include Longest Common Substring, Longest Common Subsequence, Edit Distance, Needleman-Wunsch Algorithm, and Substring Alignment and Frequency Algorithm. The algorithm selected will then return a score and what DNA sequence best matches the DNA query. The user will then be prompted to continue by choosing another algorithm or quitting the system.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+The DNA Analysis System allows for a user to analyze DNA sequences against a DNA query. The user will be welcomed and prompted to either enter their own files or use the current system's files. These files will be checked to ensure they are valid. The user will then be prompted to select an algorithm to go through the DNA. The possible options include Longest Common Substring, Longest Common Subsequence, Edit Distance, Needleman-Wunsch Algorithm, and Substring Alignment and Frequency Algorithm. The algorithm selected will then return a score and what DNA sequence best matches the DNA query. The user will then be prompted to continue by choosing another algorithm or quitting the system.  
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+In order to run this code, ensure that you have a recent version of Python3 downloaded onto your machine. 
+
+## Downloading the repository
+To download this repo, simply clone the project using the URL below or download the zip file on the gitlab page under "Code", found here: https://gitlab.bucknell.edu/kbw011/311-group-project.
+
+```
+# Clone the repo
+cd repo_location
+git clone https://gitlab.bucknell.edu/kbw011/311-group-project.git
+```
+
+## Run the code  
+Once the repo is downloaded, ensure that you are in the directory with the project files. From there, type ```python3 interface.py``` into the terminal to run the code. You will then be prompted to enter input in the terminal.  
+
+## Interact with the code  
+Once ```interface.py``` is running, you will be prompted to choose which query and sequence files to use in running the algorithms. Type ```y``` to use the default files or type ```n``` to use additional text files within the folder.   
+
+You will then be prompted to choose one of five algorithms in order to generate matching DNA sequences. Entering a number 1 through 5 will use the corresponding algorithm to generate matches. Output will be generating describing how well the query performed against the sequence, the closer to 1.0 the better. The most similar sequence/query match will be printed at the end.  
+
+You will then be prompted to enter another algorithm to analyze the DNA with or quit the program. Entering ```y``` will bring you back to the previous algorithm choices.  
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
 One example of the use of this system is as follows:
 If you opt to use the system files and select option 3, Edit Distance, the expected output will return:
 
@@ -96,17 +70,6 @@ MOST SIMILAR:
 V01243.1 Rat gene for insulin 2
 
 
-## Support
-For support, email the authors at aaa016@bucknell.edu, cpe006@bucknell.edu, stv002@bucknell.edu, or kbw011@bucknell.edu.
-
-## Contributing
-We are currently not looking for contributions to the system, however, if you would like to suggest an improvement that can be made or algorithm that can be added, email one of the authors above.
-
 ## Authors and acknowledgment
 Authors of this project include Ashley Albert, Charlie Ehrbar, Sam Vickers, and Katrina Wilson.
 
-## License
-This project is not licensed.
-
-## Project Status and Roadmap
-This project is currently complete, but open to adding new algorithms that can analyze DNA sequences and queries.
