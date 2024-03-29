@@ -2,6 +2,7 @@ def displayMatrix(m):
     for r in m:
         print(r)
 
+                               # NOT IN USE, JUST CONCEPT
 def edit_distance_RECUR(s, t): # Full recursive soltuion
     if len(t) == 0: return len(s)
     if len(s) == 0: return len(t)
@@ -28,17 +29,7 @@ def edit_distance_BU(s, t): # Bottom-up approach
                         )
     return d[len_t][len_s]
 
-def edit_distance(s, t):
+def edit_distance(s, t): # compute similarity scores, relates to length of the longest input sequence
     edit_dist = edit_distance_BU(s, t)
     if edit_dist == 0: return 1
     return "", 1 - (edit_dist / max(len(s), len(t)))
-
-
-# Some tests
-# print(edit_distance('ACGTGGTTCATTGA','ATGCCCGTAATGC'))        
-
-# print(edit_distance_RECUR('baseball','football'))
-# # print(edit_distance('baseball','football'))
-
-# # print(edit_distance_RECUR('ball','bal'))
-# print(edit_distance_BU('cars','crs'))
