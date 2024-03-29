@@ -51,7 +51,7 @@ def main():
         alg = select_alg(query_parse(query_file), parse(seq_file))
         # Compare query with other sequences using 'alg'
         do_alg(alg, query_parse(query_file), parse(seq_file))
-        if input("Would you like to enter another algorithm or quit? (y/n): ") in ['y','Y']:
+        if input("Would you like to enter another algorithm? (y/n): ") in ['y','Y']:
             continue
         else:
             print("Thank you for using the DNA Analysis System!")
