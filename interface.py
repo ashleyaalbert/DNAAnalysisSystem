@@ -8,6 +8,7 @@ from edit_distance import edit_distance
 from substring_alignment import sub_alignment
 from needleman_wurch import needleman_wurch
 
+# Run the program
 def main():
     query_file = ''
     seq_file = ''
@@ -91,11 +92,9 @@ def select_alg(s, t):
         # select_alg()
         main()
 
-# TODO: printouts of comparisons...
+# Print out scores and sequences of the matched sequences
 def do_alg(alg, s, t):
     scores = []
-
-    #print(t)
 
     maxK = ''
     print("All Scores:")
