@@ -1,5 +1,6 @@
 # Imports from other algorithm files
 import os
+import sys
 from parse import query_parse, parse
 from substring import longest_common_substring
 from subsequence import LongCommSubSeq
@@ -10,11 +11,11 @@ from needleman_wurch import needleman_wurch
 def main():
     query_file = ''
     seq_file = ''
-    # gets the current folder's absolute path
+    # Gets the current folder's absolute path
     current_folder = os.path.dirname(os.path.abspath(__file__))
     print("\nWelcome to the DNA Analysis System!")
     if input("\nUse the default DNA query / sequence files? (y/n): ") in ['y','Y']:
-        # gets the correct file paths
+        # Gets the correct file paths
         query_file = os.path.join(current_folder, 'DNA_query.txt')
         seq_file = os.path.join(current_folder, 'DNA_sequences.txt')
     else:
@@ -50,11 +51,12 @@ def main():
         alg = select_alg(query_parse(query_file), parse(seq_file))
         # Compare query with other sequences using 'alg'
         do_alg(alg, query_parse(query_file), parse(seq_file))
-        if input("Would you like to enter another algorithm or quit? (y/n): ") in ['y','Y']:
+        if input("Would you like to enter another algorithm? (y/n): ") in ['y','Y']:
             continue
         else:
             print("Thank you for using the DNA Analysis System!")
             run = False
+            sys.exit()
 
 def select_alg(s, t):
     # Display menu of algorithms
@@ -64,14 +66,11 @@ def select_alg(s, t):
     print("(3) Edit Distance")
     print("(4) Needleman-Wunsch Algorithm")
     print("(5) Substring Alignment and Frequency Algorithm")
-    # TODO: Other algorithms
+    
     algorithm = input("Enter corresponding number of algorithm of choice: ")
 
-    # TODO: parse text files
-    # TODO: Adjust with other algorithm function calls
-
     if algorithm == '1':
-        # longest_common_substring()
+        # Longest_common_substring()
         return longest_common_substring
     elif algorithm == '2':
         # LongCommSubSeq
@@ -80,24 +79,21 @@ def select_alg(s, t):
         # Edit Distance
         return edit_distance
     elif algorithm == '4':
+        # Needleman Wurch
         return needleman_wurch
     elif algorithm == '5':
-        # Substring alignment (idk what to call this)
+        # Substring alignment 
         return sub_alignment
     else:
         print("Invalid input. Try again!")
-        select_alg()
+        # select_alg()
+        main()
 
-# TODO: printouts of comparisons...
+# Returns the scores and similarity
 def do_alg(alg, s, t):
     scores = []
 
-<<<<<<< HEAD
-=======
-    #print(t)
-
     maxK = ''
->>>>>>> c12bd77400fbecb3788cb924de78d0886d843862
     print("All Scores:")
     for key in t.keys():
         scores.append(alg(s, t[key]))

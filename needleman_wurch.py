@@ -98,4 +98,4 @@ def needleman_wurch(query, input):
     max_length = max(len(seq1_align), len(seq2_align))
     normalized_score = alignment_score / max_length
     
-    return(normalized_score)
+    return(match_string, normalized_score)
