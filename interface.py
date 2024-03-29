@@ -11,11 +11,11 @@ from needleman_wurch import needleman_wurch
 def main():
     query_file = ''
     seq_file = ''
-    # gets the current folder's absolute path
+    # Gets the current folder's absolute path
     current_folder = os.path.dirname(os.path.abspath(__file__))
     print("\nWelcome to the DNA Analysis System!")
     if input("\nUse the default DNA query / sequence files? (y/n): ") in ['y','Y']:
-        # gets the correct file paths
+        # Gets the correct file paths
         query_file = os.path.join(current_folder, 'DNA_query.txt')
         seq_file = os.path.join(current_folder, 'DNA_sequences.txt')
     else:
@@ -66,14 +66,11 @@ def select_alg(s, t):
     print("(3) Edit Distance")
     print("(4) Needleman-Wunsch Algorithm")
     print("(5) Substring Alignment and Frequency Algorithm")
-    # TODO: Other algorithms
+    
     algorithm = input("Enter corresponding number of algorithm of choice: ")
 
-    # TODO: parse text files
-    # TODO: Adjust with other algorithm function calls
-
     if algorithm == '1':
-        # longest_common_substring()
+        # Longest_common_substring()
         return longest_common_substring
     elif algorithm == '2':
         # LongCommSubSeq
@@ -82,20 +79,19 @@ def select_alg(s, t):
         # Edit Distance
         return edit_distance
     elif algorithm == '4':
+        # Needleman Wurch
         return needleman_wurch
     elif algorithm == '5':
-        # Substring alignment (idk what to call this)
+        # Substring alignment 
         return sub_alignment
     else:
         print("Invalid input. Try again!")
         # select_alg()
         main()
 
-# TODO: printouts of comparisons...
+# Returns the scores and similarity
 def do_alg(alg, s, t):
     scores = []
-
-    #print(t)
 
     maxK = ''
     print("All Scores:")
